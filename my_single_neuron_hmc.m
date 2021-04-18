@@ -2,7 +2,7 @@ clc;
 clear;
 close all;
 warning off;
-%%
+%Loading the A3 dataset
 data=load('A3.dat');
 tI = 2;
 tB = [3;0;1]';
@@ -17,6 +17,7 @@ BMean = 0;
 BSigma = 10;
 LogMean = 0;
 LogSigma = 3;
+%Log Posterior function
 logpdf = @(Parameters)logPosterior(Parameters,data,targ(:,3),IMean,ISigma,BMean,BSigma,LogMean,LogSigma);
 Interceptpoint = randn;
 Beta = randn(size(data,2),1);
