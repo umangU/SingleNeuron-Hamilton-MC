@@ -7,7 +7,8 @@ data=load('A3.dat');
 tI = 2;
 tB = [3;0;1]';
 tNS = 1;
-rng('default') %For reproducibility
+%For reproducibility
+rng('default') 
 mu = data.*tB + tI;
 targ = normrnd(mu,tNS);
 IMean = 0;
@@ -44,10 +45,12 @@ disp('FAR for Hamiltonian Monte Carlo ')
 FAR=nnz(nn1~=data(:,3))/8;
 disp(FAR)
 %% metropolis
-rng default;  % For reproducibility
+rng default;
+% For reproducibility
 alpha1 = mean2(data);
 beta1 = std2(data);
-pdf = @(x)gampdf(x,alpha1,beta1); % Target distribution
+pdf = @(x)gampdf(x,alpha1,beta1); 
+% Target distribution
 proppdf = @(x,y)gampdf(x,floor(alpha1),floor(alpha1)/alpha1);
 proprnd = @(x)sum(exprnd(floor(alpha1)/alpha1,floor(alpha1),1));
 nsamples = 4;
