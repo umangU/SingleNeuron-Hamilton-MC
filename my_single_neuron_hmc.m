@@ -51,7 +51,7 @@ nn1=[sin(MAPp) cos(MAPp)];
 contour(nn1)
 title('Contour plot for Hamiltonian Monte Carlo');
 
-% FAR
+% Hamilton MC FAR
 nn1=[sin(MAPp);cos(MAPp)];
 nn1=round(abs(nn1));
 disp('FAR for Hamiltonian Monte Carlo ')
@@ -72,10 +72,11 @@ proprnd = @(x)sum(exprnd(floor(alpha1)/alpha1,floor(alpha1),1));
 nsamples = 4;
 smpl = mhsample(1,nsamples,'pdf',pdf,'proprnd',proprnd,'proppdf',proppdf);
 
-figure
 % Auto Correlation plot for Metropolis MC
+figure
 autocorr(smpl )
 title('Auto correlation plot for Metropolis Monte Carlo');
+% Contour plot for Metropolis MC
 figure
 nn2=[sin(smpl) cos(smpl)];
 contour(nn2)
