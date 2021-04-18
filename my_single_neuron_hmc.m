@@ -2,21 +2,26 @@ clc;
 clear;
 close all;
 warning off;
+
 % Loading the A3 dataset
 data=load('A3.dat');
+
 tI = 2;
 tB = [3;0;1]';
 tNS = 1;
+
 % For reproducibility
 rng('default') 
 mu = data.*tB + tI;
 targ = normrnd(mu,tNS);
+
 IMean = 0;
 ISigma = 10;
 BMean = 0;
 BSigma = 10;
 LogMean = 0;
 LogSigma = 3;
+
 % Log Posterior function
 logpdf = @(Parameters)logPosterior(Parameters,data,targ(:,3),IMean,ISigma,BMean,BSigma,LogMean,LogSigma);
 Interceptpoint = randn;
@@ -29,10 +34,12 @@ MAPp(4,:) = [];
 MAPInter = MAPp(1);
 MAPBeta = MAPp(2:end-1);
 MAPLogNoiseVariance = MAPp(end);
+
 figure
 plot(fInfo.Iteration,fInfo.Objective,'ro-');
 xlabel('Iteration');
 ylabel('Negative log density');
+
 % Plotting HMC
 figure
 % Auto-Correlation Plot
@@ -43,11 +50,13 @@ nn1=[sin(MAPp) cos(MAPp)];
 % Contour Plot
 contour(nn1)
 title('Contour plot for Hamiltonian Monte Carlo');
+
 nn1=[sin(MAPp);cos(MAPp)];
 nn1=round(abs(nn1));
 disp('FAR for Hamiltonian Monte Carlo ')
 FAR=nnz(nn1~=data(:,3))/8;
 disp(FAR)
+
 %% metropolis
 rng default;
 % For reproducibility
@@ -59,6 +68,7 @@ proppdf = @(x,y)gampdf(x,floor(alpha1),floor(alpha1)/alpha1);
 proprnd = @(x)sum(exprnd(floor(alpha1)/alpha1,floor(alpha1),1));
 nsamples = 4;
 smpl = mhsample(1,nsamples,'pdf',pdf,'proprnd',proprnd,'proppdf',proppdf);
+
 figure
 % Auto Correlation plot for Metropolis MC
 autocorr(smpl )
@@ -67,6 +77,7 @@ figure
 nn2=[sin(smpl) cos(smpl)];
 contour(nn2)
 title('Contour plot for Metropolis Monte Carlo');
+
 nn2=[sin(smpl);cos(smpl)];
 nn2=round(abs(nn2));
 disp('FAR for Metropolis Monte Carlo')
