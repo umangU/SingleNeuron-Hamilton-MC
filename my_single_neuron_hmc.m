@@ -35,10 +35,12 @@ xlabel('Iteration');
 ylabel('Negative log density');
 % Plotting HMC
 figure
+% Auto-Correlation Plot
 autocorr(MAPp)
 title('Auto correlation plot for Hamiltonian Monte Carlo');
 figure
 nn1=[sin(MAPp) cos(MAPp)];
+% Contour Plot
 contour(nn1)
 title('Contour plot for Hamiltonian Monte Carlo');
 nn1=[sin(MAPp);cos(MAPp)];
@@ -58,6 +60,7 @@ proprnd = @(x)sum(exprnd(floor(alpha1)/alpha1,floor(alpha1),1));
 nsamples = 4;
 smpl = mhsample(1,nsamples,'pdf',pdf,'proprnd',proprnd,'proppdf',proppdf);
 figure
+% Auto Correlation plot for Metropolis MC
 autocorr(smpl )
 title('Auto correlation plot for Metropolis Monte Carlo');
 figure
