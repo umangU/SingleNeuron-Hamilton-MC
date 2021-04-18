@@ -35,12 +35,12 @@ MAPInter = MAPp(1);
 MAPBeta = MAPp(2:end-1);
 MAPLogNoiseVariance = MAPp(end);
 
+% Plotting HMC
 figure
 plot(fInfo.Iteration,fInfo.Objective,'ro-');
 xlabel('Iteration');
 ylabel('Negative log density');
 
-% Plotting HMC
 figure
 % Auto-Correlation Plot
 autocorr(MAPp)
@@ -57,7 +57,9 @@ disp('FAR for Hamiltonian Monte Carlo ')
 FAR=nnz(nn1~=data(:,3))/8;
 disp(FAR)
 
-%% metropolis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Metropolis Monte Carlo
 rng default;
 % For reproducibility
 alpha1 = mean2(data);
