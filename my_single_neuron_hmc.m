@@ -41,13 +41,13 @@ plot(fInfo.Iteration,fInfo.Objective,'ro-');
 xlabel('Iteration');
 ylabel('Negative log density');
 
-figure
 % Auto-Correlation Plot
+figure
 autocorr(MAPp)
 title('Auto correlation plot for Hamiltonian Monte Carlo');
+% Contour Plot
 figure
 nn1=[sin(MAPp) cos(MAPp)];
-% Contour Plot
 contour(nn1)
 title('Contour plot for Hamiltonian Monte Carlo');
 
