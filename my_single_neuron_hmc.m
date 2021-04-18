@@ -51,6 +51,7 @@ nn1=[sin(MAPp) cos(MAPp)];
 contour(nn1)
 title('Contour plot for Hamiltonian Monte Carlo');
 
+% FAR
 nn1=[sin(MAPp);cos(MAPp)];
 nn1=round(abs(nn1));
 disp('FAR for Hamiltonian Monte Carlo ')
@@ -59,7 +60,7 @@ disp(FAR)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Metropolis Monte Carlo
+% Metropolis Monte Carlo
 rng default;
 % For reproducibility
 alpha1 = mean2(data);
@@ -80,6 +81,7 @@ nn2=[sin(smpl) cos(smpl)];
 contour(nn2)
 title('Contour plot for Metropolis Monte Carlo');
 
+% Metropolis MC FAR
 nn2=[sin(smpl);cos(smpl)];
 nn2=round(abs(nn2));
 disp('FAR for Metropolis Monte Carlo')
