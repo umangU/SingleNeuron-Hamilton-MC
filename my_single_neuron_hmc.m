@@ -2,12 +2,12 @@ clc;
 clear;
 close all;
 warning off;
-%Loading the A3 dataset
+% Loading the A3 dataset
 data=load('A3.dat');
 tI = 2;
 tB = [3;0;1]';
 tNS = 1;
-%For reproducibility
+% For reproducibility
 rng('default') 
 mu = data.*tB + tI;
 targ = normrnd(mu,tNS);
@@ -17,7 +17,7 @@ BMean = 0;
 BSigma = 10;
 LogMean = 0;
 LogSigma = 3;
-%Log Posterior function
+% Log Posterior function
 logpdf = @(Parameters)logPosterior(Parameters,data,targ(:,3),IMean,ISigma,BMean,BSigma,LogMean,LogSigma);
 Interceptpoint = randn;
 Beta = randn(size(data,2),1);
@@ -33,6 +33,7 @@ figure
 plot(fInfo.Iteration,fInfo.Objective,'ro-');
 xlabel('Iteration');
 ylabel('Negative log density');
+% Plotting HMC
 figure
 autocorr(MAPp)
 title('Auto correlation plot for Hamiltonian Monte Carlo');
@@ -55,9 +56,8 @@ pdf = @(x)gampdf(x,alpha1,beta1);
 proppdf = @(x,y)gampdf(x,floor(alpha1),floor(alpha1)/alpha1);
 proprnd = @(x)sum(exprnd(floor(alpha1)/alpha1,floor(alpha1),1));
 nsamples = 4;
-smpl = mhsample(1,nsamples,'pdf',pdf,'proprnd',proprnd,...
-                'proppdf',proppdf);
-            figure
+smpl = mhsample(1,nsamples,'pdf',pdf,'proprnd',proprnd,'proppdf',proppdf);
+figure
 autocorr(smpl )
 title('Auto correlation plot for Metropolis Monte Carlo');
 figure
