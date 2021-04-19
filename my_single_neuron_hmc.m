@@ -1,8 +1,3 @@
-clc;
-clear;
-close all;
-warning off;
-
 % Loading the A3 dataset
 data=load('A3.dat');
 
