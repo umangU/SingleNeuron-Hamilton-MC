@@ -46,7 +46,7 @@ nn1=[sin(MAPp) cos(MAPp)];
 contour(nn1)
 title('Contour plot for Hamiltonian Monte Carlo');
 
-% Hamilton MC FAR
+%Hamilton MC FAR
 nn1=[sin(MAPp);cos(MAPp)];
 nn1=round(abs(nn1));
 disp('FAR for Hamiltonian Monte Carlo ')
@@ -55,29 +55,29 @@ disp(FAR)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Metropolis Monte Carlo
+%Metropolis Monte Carlo
 rng default;
-% For reproducibility
+%For reproducibility
 alpha1 = mean2(data);
 beta1 = std2(data);
 pdf = @(x)gampdf(x,alpha1,beta1); 
-% Target distribution
+%Target distribution
 proppdf = @(x,y)gampdf(x,floor(alpha1),floor(alpha1)/alpha1);
 proprnd = @(x)sum(exprnd(floor(alpha1)/alpha1,floor(alpha1),1));
 nsamples = 4;
 smpl = mhsample(1,nsamples,'pdf',pdf,'proprnd',proprnd,'proppdf',proppdf);
 
-% Auto Correlation plot for Metropolis MC
+%Auto Correlation plot for Metropolis MC
 figure
 autocorr(smpl )
 title('Auto correlation plot for Metropolis Monte Carlo');
-% Contour plot for Metropolis MC
+%Contour plot for Metropolis MC
 figure
 nn2=[sin(smpl) cos(smpl)];
 contour(nn2)
 title('Contour plot for Metropolis Monte Carlo');
 
-% Metropolis MC FAR
+%Metropolis MC FAR
 nn2=[sin(smpl);cos(smpl)];
 nn2=round(abs(nn2));
 disp('FAR for Metropolis Monte Carlo')
