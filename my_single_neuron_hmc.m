@@ -5,7 +5,7 @@ tI = 2;
 tB = [3;0;1]';
 tNS = 1;
 
-%For reproducibility
+% For reproducibility
 rng('default') 
 mu = data.*tB + tI;
 targ = normrnd(mu,tNS);
@@ -17,7 +17,7 @@ BSigma = 10;
 LogMean = 0;
 LogSigma = 3;
 
-%Log Posterior function
+% Log Posterior function
 logpdf = @(Parameters)logPosterior(Parameters,data,targ(:,3),IMean,ISigma,BMean,BSigma,LogMean,LogSigma);
 Interceptpoint = randn;
 Beta = randn(size(data,2),1);
@@ -30,7 +30,7 @@ MAPInter = MAPp(1);
 MAPBeta = MAPp(2:end-1);
 MAPLogNoiseVariance = MAPp(end);
 
-%Plotting HMC
+% Plotting HMC
 figure
 plot(fInfo.Iteration,fInfo.Objective,'ro-');
 xlabel('Iteration');
@@ -46,7 +46,7 @@ nn1=[sin(MAPp) cos(MAPp)];
 contour(nn1)
 title('Contour plot for Hamiltonian Monte Carlo');
 
-%Hamilton MC FAR
+% Hamilton MC FAR
 nn1=[sin(MAPp);cos(MAPp)];
 nn1=round(abs(nn1));
 disp('FAR for Hamiltonian Monte Carlo ')
