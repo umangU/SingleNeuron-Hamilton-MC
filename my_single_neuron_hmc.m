@@ -1,4 +1,4 @@
-% Loading the A3 dataset
+%oading the A3 dataset
 data=load('A3.dat');
 
 tI = 2;
