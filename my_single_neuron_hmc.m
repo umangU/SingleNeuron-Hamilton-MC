@@ -30,7 +30,7 @@ MAPInter = MAPp(1);
 MAPBeta = MAPp(2:end-1);
 MAPLogNoiseVariance = MAPp(end);
 
-%Plotting HMC
+% Plotting HMC
 figure
 plot(fInfo.Iteration,fInfo.Objective,'ro-');
 xlabel('Iteration');
