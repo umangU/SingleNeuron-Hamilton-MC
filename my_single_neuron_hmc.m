@@ -71,7 +71,7 @@ smpl = mhsample(1,nsamples,'pdf',pdf,'proprnd',proprnd,'proppdf',proppdf);
 figure
 autocorr(smpl )
 title('Auto correlation plot for Metropolis Monte Carlo');
-%Contour plot for Metropolis MC
+% Contour plot for Metropolis MC
 figure
 nn2=[sin(smpl) cos(smpl)];
 contour(nn2)
