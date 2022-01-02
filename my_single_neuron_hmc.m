@@ -36,7 +36,7 @@ plot(fInfo.Iteration,fInfo.Objective,'ro-');
 xlabel('Iteration');
 ylabel('Negative log density');
 
-%Auto-Correlation Plot
+% Auto-Correlation Plot
 figure
 autocorr(MAPp)
 title('Auto correlation plot for Hamiltonian Monte Carlo');
