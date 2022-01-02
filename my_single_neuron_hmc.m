@@ -40,6 +40,7 @@ ylabel('Negative log density');
 figure
 autocorr(MAPp)
 title('Auto correlation plot for Hamiltonian Monte Carlo');
+
 % Contour Plot
 figure
 nn1=[sin(MAPp) cos(MAPp)];
