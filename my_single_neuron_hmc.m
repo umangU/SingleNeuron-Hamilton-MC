@@ -1,11 +1,11 @@
-% Loading the A3 dataset
+%Loading the A3 dataset
 data=load('A3.dat');
 
 tI = 2;
 tB = [3;0;1]';
 tNS = 1;
 
-% For reproducibility
+%For reproducibility
 rng('default') 
 mu = data.*tB + tI;
 targ = normrnd(mu,tNS);
@@ -30,7 +30,7 @@ MAPInter = MAPp(1);
 MAPBeta = MAPp(2:end-1);
 MAPLogNoiseVariance = MAPp(end);
 
-% Plotting HMC
+% lotting HMC
 figure
 plot(fInfo.Iteration,fInfo.Objective,'ro-');
 xlabel('Iteration');
