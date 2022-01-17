@@ -1,4 +1,4 @@
-%Loading the A3 dataset
+% Loading the A3 dataset
 data=load('A3.dat');
 
 tI = 2;
@@ -17,7 +17,7 @@ BSigma = 10;
 LogMean = 0;
 LogSigma = 3;
 
-% Log Posterior function
+%Log Posterior function
 logpdf = @(Parameters)logPosterior(Parameters,data,targ(:,3),IMean,ISigma,BMean,BSigma,LogMean,LogSigma);
 Interceptpoint = randn;
 Beta = randn(size(data,2),1);
@@ -36,7 +36,7 @@ plot(fInfo.Iteration,fInfo.Objective,'ro-');
 xlabel('Iteration');
 ylabel('Negative log density');
 
-% Auto-Correlation Plot
+%Auto-Correlation Plot
 figure
 autocorr(MAPp)
 title('Auto correlation plot for Hamiltonian Monte Carlo');
@@ -47,7 +47,7 @@ nn1=[sin(MAPp) cos(MAPp)];
 contour(nn1)
 title('Contour plot for Hamiltonian Monte Carlo');
 
-% Hamilton MC FAR
+%Hamilton MC FAR
 nn1=[sin(MAPp);cos(MAPp)];
 nn1=round(abs(nn1));
 disp('FAR for Hamiltonian Monte Carlo ')
@@ -56,7 +56,7 @@ disp(FAR)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Metropolis MC
+%Metropolis MC
 rng default;
 % For reproducibility
 alpha1 = mean2(data);
