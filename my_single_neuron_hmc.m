@@ -56,7 +56,7 @@ disp(FAR)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Metropolis MC
+% Metropolis MC
 rng default;
 % For reproducibility
 alpha1 = mean2(data);
