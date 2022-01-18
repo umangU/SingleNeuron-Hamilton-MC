@@ -1,11 +1,11 @@
-% Loading the A3 dataset
+%Loading the A3 dataset
 data=load('A3.dat');
 
 tI = 2;
 tB = [3;0;1]';
 tNS = 1;
 
-%For reproducibility
+% For reproducibility
 rng('default') 
 mu = data.*tB + tI;
 targ = normrnd(mu,tNS);
@@ -78,7 +78,7 @@ nn2=[sin(smpl) cos(smpl)];
 contour(nn2)
 title('Contour plot for Metropolis Monte Carlo');
 
-%Metropolis MC FAR
+% Metropolis MC FAR
 nn2=[sin(smpl);cos(smpl)];
 nn2=round(abs(nn2));
 disp('FAR for Metropolis Monte Carlo')
