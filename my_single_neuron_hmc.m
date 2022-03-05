@@ -5,7 +5,7 @@ tI = 2;
 tB = [3;0;1]';
 tNS = 1;
 
-%For reproducibility
+% For reproducibility
 rng('default') 
 mu = data.*tB + tI;
 targ = normrnd(mu,tNS);
