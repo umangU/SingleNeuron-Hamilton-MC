@@ -78,7 +78,7 @@ nn2=[sin(smpl) cos(smpl)];
 contour(nn2)
 title('Contour plot for Metropolis Monte Carlo');
 
-% Metropolis MC FAR
+%Metropolis MC FAR
 nn2=[sin(smpl);cos(smpl)];
 nn2=round(abs(nn2));
 disp('FAR for Metropolis Monte Carlo')
